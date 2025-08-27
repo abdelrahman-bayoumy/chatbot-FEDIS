@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GenAI Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="wrap layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sb-header">
+        <h2>History</h2>
+        <div class="sb-actions">
+          <button id="exportBtn" title="Download JSON">Export</button>
+          <button id="clearBtn"  title="Clear this history">Clear</button>
+        </div>
+      </div>
+      <ul id="historyList"></ul>
+    </aside>
+
+    <!-- Main content -->
+    <div class="main">
+      <header>
+        <h1>GenAI Chatbot</h1>
+        <p class="sub">Personalized memory • Smooth web UI</p>
+      </header>
+
+      <main id="chat"></main>
+
+      <form id="composer">
+        <input id="input" type="text" placeholder='Try: "remember my birthday is Nov 9"' autocomplete="off" />
+        <button type="submit" aria-label="Send">Send</button>
+      </form>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

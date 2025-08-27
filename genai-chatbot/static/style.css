@@ -1,0 +1,46 @@
+* { box-sizing: border-box; }
+:root { --bg:#0b0b10; --panel:#151521; --ink:#e7e7f0; --ink-dim:#b9b9c8; --accent:#7aa2f7; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto; }
+.wrap { max-width: 860px; margin: 0 auto; padding: 16px; display: flex; flex-direction: column; min-height: 100vh; }
+header { padding: 8px 4px 10px; }
+h1 { margin: 0; font-size: 20px; letter-spacing: 0.4px; }
+.sub { margin: 2px 0 0; color: var(--ink-dim); font-size: 13px; }
+#chat { background: var(--panel); flex: 1 1 auto; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+.msg { display: inline-block; max-width: 80%; padding: 10px 12px; border-radius: 14px; white-space: pre-wrap; word-wrap: break-word; }
+.msg.user { align-self: flex-end; background: #2a2a3c; }
+.msg.bot  { align-self: flex-start; background: #1d1d2c; }
+.msg.bot::before { content: "🤖 "; opacity: 0.8; }
+.msg.user::before { content: "🙋 "; opacity: 0.8; }
+#composer { margin-top: 12px; display: flex; gap: 8px; }
+#composer input { flex: 1 1 auto; padding: 12px 14px; border-radius: 12px; border: 1px solid #2b2b3a; background: #11111a; color: var(--ink); }
+#composer button { padding: 12px 16px; border-radius: 12px; border: 0; background: var(--accent); color: #0b0b10; font-weight: 700; cursor: pointer; }
+#composer button:hover { filter: brightness(1.1); }
+/* Layout with a left sidebar */
+.layout { display: grid; grid-template-columns: 280px 1fr; gap: 16px; }
+.sidebar {
+  background: var(--panel); border-radius: 16px; padding: 12px;
+  height: calc(100vh - 32px); position: sticky; top: 16px; overflow: auto;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+.sb-header { display: flex; align-items: center; justify-content: space-between; }
+.sb-header h2 { font-size: 16px; margin: 4px 0; }
+.sb-actions button {
+  margin-left: 6px; padding: 6px 10px; border-radius: 10px; border: 0;
+  background: #2a2a3c; color: var(--ink); cursor: pointer; font-size: 12px;
+}
+.sb-actions button:hover { filter: brightness(1.1); }
+
+#historyList { list-style: none; padding: 8px 0 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.hitem {
+  background: #1d1d2c; border: 1px solid #2b2b3a; border-radius: 12px;
+  padding: 8px 10px; cursor: pointer; font-size: 14px; color: var(--ink);
+}
+.hitem:hover { filter: brightness(1.06); }
+.hitem .htime { display: block; color: var(--ink-dim); font-size: 11px; margin-top: 2px; }
+.msg.highlight { outline: 2px solid var(--accent); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+}
